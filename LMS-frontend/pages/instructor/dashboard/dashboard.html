@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard - GoGenC LMS</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+    <style>
+      /* Reuse styles from student dashboard with minor changes */
+      
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../../../assets/images/LOGO.png" alt="GoGenC Logo" />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../../auth/login/login.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+          <button class="toggle-sidebar">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="../dashboard/dashboard.html" class="sidebar-item active">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="../courses/courses.html" class="sidebar-item">
+              <i class="fas fa-book"></i>
+              <span>Courses</span>
+            </a>
+          </li>
+          <li>
+            <a href="../quiz/quiz.html" class="sidebar-item">
+              <i class="fas fa-question-circle"></i>
+              <span>Quizzes</span>
+            </a>
+          </li>
+          <li>
+            <a href="../student-tracking/student-tracking.html" class="sidebar-item">
+              <i class="fas fa-tasks"></i>
+              <span>Student Tracking</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <h1 class="mb-4">Instructor Dashboard</h1>
+        <p>
+          Welcome to the Instructor dashboard. Here you can manage your courses
+          and track student progress.
+        </p>
+        <!-- Additional dashboard content can be added here -->
+        <div class="row text-center">
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-user-graduate fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">Students</h5>
+                <p class="card-text display-4" id="studentCount"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-book fa-3x mb-3 text-success"></i>
+                <h5 class="card-title">Courses</h5>
+                <p class="card-text display-4" id="courseCount"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body text-center">
+                <i class="fas fa-question-circle fa-3x mb-3 text-warning"></i>
+                <h5 class="card-title">Quizzes</h5>
+                <p class="card-text display-4" id="quizCount">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pie Chart Section -->
+        <div class="row mt-5">
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body" style="height: 350px">
+                <h5 class="card-title text-center mb-4">
+                  Course Completion by Students
+                </h5>
+                <canvas
+                  id="completionChart"
+                  margin-left="40px"
+                  width="400"
+                  height="250"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-4">
+                  Quiz Completion Status (Days in Month)
+                </h5>
+                <canvas
+                  id="quizCompletionChart"
+                  width="400"
+                  height="250"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

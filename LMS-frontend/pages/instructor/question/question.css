@@ -1,0 +1,24 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    padding: 2rem;
+  }
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+  .table thead th {
+    background-color: #4a90e2;
+    color: white;
+  }
+  .table tbody tr td {
+    padding: 0.5rem !important;
+  }
+  .table tbody tr td input {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .btn-remove {
+    color: #e74c3c;
+    cursor: pointer;
+  }

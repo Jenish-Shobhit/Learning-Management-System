@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Questions - GoGenC LMS</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+    <link rel="stylesheet" href="question.css" />
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Questions</h1>
+      <table class="table table-bordered table-striped table-hover" id="questionsTable">
+        <thead class="thead-dark">
+          <tr>
+            <th>Question</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+            <th>Correct Option (1-4)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between mb-3">
+        <button class="btn btn-success" id="addQuestionBtn"><i class="fas fa-plus"></i> Add Question</button>
+        <div>
+          <a href="../quiz/quiz.html" class="btn btn-secondary">Back to Quizzes</a>
+          <button class="btn btn-primary" id="submitQuestionsBtn">Submit Questions</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="question.js">
+      
+    </script>
+  </body>
+</html>

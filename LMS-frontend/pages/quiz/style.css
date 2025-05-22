@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  .question-card {
+    border: 1px solid #ccc;
+    padding: 18px 20px 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: #fff;
+  }
+  .question-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+  }
+  .options {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .options li {
+    margin-bottom: 8px;
+  }
+  #submit-btn {
+    margin-top: 20px;
+    padding: 10px 24px;
+    font-size: 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #score-display {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a90e2;
+  }
