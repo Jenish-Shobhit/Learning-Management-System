@@ -1,1 +1,16 @@
 .DS_Store
+
+# Local configuration and generated output
+.env
+.env.*
+!.env.example
+*.log
+**/logs/
+**/target/
+
+# IDE metadata
+**/.idea/
+**/.settings/
+**/.classpath
+**/.project
+**/.factorypath

@@ -15,7 +15,7 @@ import java.util.List;
 public class Quiz {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "quiz_seq")
-	@SequenceGenerator(name = "enrollment_seq", sequenceName = "enrollment_seq", allocationSize = 1)
+	@SequenceGenerator(name = "quiz_seq", sequenceName = "quiz_seq", allocationSize = 1)
 	private Long quizId;
 
 	@NotBlank(message = "Quiz Name cannot be blank")

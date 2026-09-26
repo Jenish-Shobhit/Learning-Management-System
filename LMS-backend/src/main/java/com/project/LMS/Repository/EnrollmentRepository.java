@@ -14,13 +14,12 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
     Optional<Enrollment> findByUser_userIdAndCourse_courseId(Long userId, Long courseId);
 
     @Query(value =
-            "SELECT * FROM (" +
-                    "  SELECT u.name as userName, CAST(AVG(e.progress) AS DECIMAL(10,2)) as averageProgress " +
+            "SELECT u.name as userName, CAST(AVG(e.progress) AS DECIMAL(10,2)) as averageProgress " +
                     "  FROM enrollment e " +
                     "  JOIN users u ON e.user_id = u.user_id " +
-                    "  GROUP BY u.name " +
-                    "  ORDER BY AVG(e.progress) DESC" +
-                    ") WHERE ROWNUM <= 4",
+                    "  GROUP BY u.user_id, u.name " +
+                    "  ORDER BY AVG(e.progress) DESC " +
+                    "  LIMIT 4",
             nativeQuery = true)
     List<Object[]> getTopUsersByAverageProgress();
     @Query(value =

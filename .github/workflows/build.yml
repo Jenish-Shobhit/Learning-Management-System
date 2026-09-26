@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend / Java 21 + MySQL
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: lmsdb
+          MYSQL_ROOT_PASSWORD: ci-only-password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -pci-only-password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    env:
+      DB_URL: jdbc:mysql://127.0.0.1:3306/lmsdb
+      DB_USERNAME: root
+      DB_PASSWORD: ci-only-password
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: LMS-backend/pom.xml
+      - name: Build and test
+        working-directory: LMS-backend
+        run: ./mvnw --batch-mode --no-transfer-progress verify
+
+  frontend:
+    name: Frontend / JavaScript syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Check JavaScript syntax
+        run: find LMS-frontend -type f -name '*.js' -print0 | xargs -0 -n 1 node --check
